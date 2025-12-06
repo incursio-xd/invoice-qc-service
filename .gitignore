@@ -1,0 +1,79 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# API keys (extra safety)
+*_key.txt
+*_secret.txt
+*.pem
+*.key
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+invoices.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Output files
+outputs/
+extracted_*.json
+validation_*.json
+directory_structure.txt
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+.tox/
+
+# Logs
+*.log
+logs/
+
+# Jupyter Notebook (if you have any)
+.ipynb_checkpoints/
+
+# OS specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+~$*
+
+# Don't ignore sample files (explicitly include them)
+!sample_pdf_*.pdf
+!pdfs/sample_*.pdf

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice QC Console</title>
+</head>
+<body>
+    <h1>Invoice Quality Control System</h1>
+    <p><em>Extract, validate, and manage B2B invoice data</em></p>
+    <hr>
+    
+    <!-- Section 1: Upload PDFs -->
+    <section>
+        <h2>1. Upload & Validate PDFs</h2>
+        <p>Select one or more invoice PDF files to extract and validate automatically.</p>
+        
+        <form id="uploadForm">
+            <label for="pdfFiles">
+                <strong>Select Invoice PDFs:</strong>
+                <input type="file" id="pdfFiles" multiple accept=".pdf" required>
+            </label>
+            <br><br>
+            <button type="submit">Extract & Validate</button>
+            <button type="button" id="clearUpload">Clear</button>
+        </form>
+        
+        <div id="uploadStatus"></div>
+    </section>
+    
+    <hr>
+    
+    <!-- Section 2: Validate JSON -->
+    <section>
+        <h2>2. Validate JSON Directly</h2>
+        <p>Paste invoice data in JSON format for validation without PDF extraction.</p>
+        
+        <form id="jsonForm">
+            <label for="jsonInput"><strong>Invoice JSON Array:</strong></label>
+            <br>
+            <textarea id="jsonInput" rows="10" cols="80" placeholder='[{"invoice_number": "INV-001", ...}]'></textarea>
+            <br><br>
+            <button type="submit">Validate JSON</button>
+            <button type="button" id="clearJson">Clear</button>
+        </form>
+        
+        <details>
+            <summary><strong>Sample JSON Format</strong></summary>
+            <pre>[
+  {
+    "invoice_number": "INV-001",
+    "invoice_date": "2024-01-15",
+    "seller_name": "ABC Corp",
+    "buyer_name": "XYZ Ltd",
+    "currency": "USD",
+    "net_total": 1000.00,
+    "tax_amount": 180.00,
+    "gross_total": 1180.00
+  }
+]</pre>
+        </details>
+    </section>
+    
+    <hr>
+    
+    <!-- Section 3: Results -->
+    <section id="resultsSection" style="display: none;">
+        <h2>3. Validation Results</h2>
+        
+        <h3>Summary</h3>
+        <div id="summary"></div>
+        
+        <h3>Invoice Details</h3>
+        <fieldset>
+            <legend>Filter Options</legend>
+            <label>
+                <input type="checkbox" id="filterInvalid">
+                Show only invalid invoices
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" id="filterValid">
+                Show only valid invoices
+            </label>
+        </fieldset>
+        <br>
+        
+        <table border="1" id="resultsTable" width="100%" cellpadding="8" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Invoice Number</th>
+                    <th>Date</th>
+                    <th>Seller</th>
+                    <th>Buyer</th>
+                    <th>Currency</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Errors</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        
+        <br>
+        <button id="downloadReport">Download Report (JSON)</button>
+        <button id="clearResults">Clear Results</button>
+    </section>
+    
+    <hr>
+    
+    <!-- Footer -->
+    <footer>
+        <p><small>Invoice QC Service v1.0.0 | API Status: <span id="apiStatus">Checking...</span></small></p>
+    </footer>
+    
+    <script src="/static/app.js"></script>
+</body>
+</html>
