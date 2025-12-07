@@ -468,7 +468,7 @@ If given more time, I would add:
 
 ## 🎥 Video Demonstration
 
-**Video Link**: [Google Drive Link Here - Make Public]
+**Video Link**: (https://drive.google.com/file/d/1juYGTifngadPZ2LmLVLTROHrS6OwZZrF/view?usp=sharing)
 
 ---
 
